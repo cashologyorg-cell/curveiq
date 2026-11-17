@@ -18,8 +18,8 @@
     --curve-shift: #43A047;
     --curve-2: #FB8C00;
     --curve-3: #8E24AA;
-    --eq-point: #C9A84C;
-    --gold: #C9A84C;
+    --eq-point: #E8B81C;
+    --gold: #E8B81C;
     --gold-light: #E8C96A;
     --text-primary: #111111;
     --text-secondary: #555555;
@@ -48,8 +48,8 @@
     --curve-shift: #66BB6A;
     --curve-2: #FFA726;
     --curve-3: #AB47BC;
-    --eq-point: #C9A84C;
-    --gold: #C9A84C;
+    --eq-point: #E8B81C;
+    --gold: #E8B81C;
     --gold-light: #E8C96A;
     --text-primary: #F0EEE8;
     --text-secondary: #AAAAAA;
@@ -105,7 +105,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    border-bottom: 1px solid #C9A84C33;
+    border-bottom: 1px solid #E8B81C33;
     position: relative;
     z-index: 100;
   }
@@ -417,7 +417,7 @@
 
   .result-box.highlight {
     border-color: var(--gold);
-    background: linear-gradient(135deg, var(--input-bg) 0%, #C9A84C11 100%);
+    background: linear-gradient(135deg, var(--input-bg) 0%, #E8B81C11 100%);
   }
 
   .result-tag {
@@ -634,7 +634,7 @@
 
   .badge-normal { background: #43A04722; color: #43A047; }
   .badge-inferior { background: #E5393522; color: #E53935; }
-  .badge-giffen { background: #C9A84C22; color: #C9A84C; }
+  .badge-giffen { background: #E8B81C22; color: #E8B81C; }
   .badge-elastic { background: #1A73E822; color: #1A73E8; }
   .badge-inelastic { background: #AB47BC22; color: #AB47BC; }
   .badge-unitary { background: #43A04722; color: #43A047; }
@@ -770,12 +770,12 @@
   .landing::before {
     width: 600px; height: 600px;
     right: -100px; top: -200px;
-    background: radial-gradient(circle, #D1AA3718, transparent 65%);
+    background: radial-gradient(circle, #E8B81C18, transparent 65%);
   }
   .landing::after {
     width: 500px; height: 500px;
     left: -80px; bottom: -100px;
-    background: radial-gradient(circle, #D1AA3712, transparent 60%);
+    background: radial-gradient(circle, #E8B81C12, transparent 60%);
   }
 
   .landing.hidden {
@@ -872,7 +872,7 @@
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 10px 28px #D1AA3730;
+    box-shadow: 0 10px 28px #E8B81C30;
     transition: opacity 0.2s, transform 0.15s;
   }
   .landing-btn:hover { opacity: 0.9; transform: translateY(-1px); }
@@ -1056,6 +1056,25 @@
     padding-top: 20px;
     border-top: 1px solid var(--panel-border);
   }
+  /* tabbed rail: show only the active pane (Answer overview vs Schedule) */
+  .rp-scroll.rp-tabbed .rp-pane { display: none; }
+  .rp-scroll.rp-tabbed .rp-pane.active { display: block; }
+  /* editable scenario schedule */
+  .schedule-table.sched-edit td { padding: 2px 3px; }
+  .schedule-table.sched-edit input {
+    width: 100%; background: var(--input-bg); border: 1px solid var(--panel-border);
+    border-radius: 5px; padding: 5px 6px; color: var(--text-primary);
+    font-family: 'Montserrat', monospace; font-size: 11.5px; text-align: center; outline: none;
+    transition: border-color .14s;
+  }
+  .schedule-table.sched-edit input:focus { border-color: var(--gold); }
+  .schedule-table.sched-edit th:last-child { width: 24px; }
+  .sched-del-cell { text-align: center; width: 24px; }
+  .sched-del { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; line-height: 1; padding: 2px 4px; border-radius: 4px; transition: color .14s, background .14s; }
+  .sched-del:hover { color: var(--curve-s); background: var(--input-bg); }
+  .sched-addrow { width: 100%; margin-top: 8px; background: transparent; border: 1px dashed var(--panel-border); border-radius: 7px; padding: 7px; cursor: pointer; font-family: 'Montserrat', monospace; font-size: 10px; letter-spacing: .6px; color: var(--text-muted); transition: border-color .14s, color .14s; }
+  .sched-addrow:hover { border-color: var(--gold); color: var(--gold); }
+  .sched-edit-hint { font-size: 9.5px; color: var(--text-muted); margin-top: 7px; font-style: italic; }
 
   .rp-answer-heading {
     display: flex;
@@ -1075,7 +1094,7 @@
     gap: 5px;
     padding: 3px 9px;
     border-radius: 999px;
-    background: #D1AA3715;
+    background: #E8B81C15;
     border: 1px solid var(--gold);
     color: var(--gold);
     font-family: 'Montserrat', monospace;
@@ -1203,7 +1222,7 @@
   }
 
   .scenario-card.active {
-    background: #D1AA3712;
+    background: #E8B81C12;
     border: 1px solid var(--gold);
     border-left: 3px solid var(--gold);
   }
@@ -1235,7 +1254,7 @@
   }
 
   .difficulty-easy { color: #43A047; }
-  .difficulty-medium { color: #C9A84C; }
+  .difficulty-medium { color: #E8B81C; }
   .difficulty-hard { color: #E53935; }
 
   /* Group label above scenario cards */
@@ -1363,28 +1382,28 @@
 
   /* FIGMA RE-SKIN */
   body[data-theme="dark"] {
-    --bg: #080806;
-    --chrome: #070706;
-    --chrome-2: #11100D;
-    --chrome-3: #1A1812;
+    --bg: #040404;
+    --chrome: #020202;
+    --chrome-2: #0C0B09;
+    --chrome-3: #15120C;
     --canvas-bg: #000000;
     --canvas-border: #3A352A;
     --curve-d: #55A7FF;
     --curve-s: #FF6666;
-    --curve-shift: #D2AA38;
-    --curve-2: #D7B64A;
+    --curve-shift: #E7BE2E;
+    --curve-2: #EAC23E;
     --curve-3: #8B8B82;
-    --eq-point: #D7B64A;
-    --gold: #D1AA37;
-    --gold-light: #F0D36D;
+    --eq-point: #EAC23E;
+    --gold: #E8B81C;
+    --gold-light: #FAD44F;
     --text-primary: #F6F2E8;
     --text-secondary: #A7A094;
     --text-muted: #6C655A;
-    --panel-bg: #12110E;
-    --panel-border: #342F25;
-    --input-bg: #171613;
-    --input-border: #3A3429;
-    --grid-color: #1D1A13;
+    --panel-bg: #0A0A08;
+    --panel-border: #2C271C;
+    --input-bg: #111010;
+    --input-border: #332E22;
+    --grid-color: #16130C;
     --axis-color: #D8CFB7;
     --sidebar-w: 330px;
     --header-h: 58px;
@@ -1410,8 +1429,8 @@
 
   body {
     background:
-      radial-gradient(circle at 20% 0%, #D1AA3712, transparent 28%),
-      radial-gradient(circle at 100% 100%, #D1AA370d, transparent 26%),
+      radial-gradient(circle at 20% 0%, #E8B81C12, transparent 28%),
+      radial-gradient(circle at 100% 100%, #E8B81C0d, transparent 26%),
       var(--bg);
   }
 
@@ -1540,7 +1559,7 @@
     padding: 5px 14px;
     font-size: 9px;
     letter-spacing: .9px;
-    background: linear-gradient(135deg, var(--gold), #8E741D);
+    background: linear-gradient(135deg, var(--gold), #9A7A10);
   }
 
   .app-layout {
@@ -1550,14 +1569,14 @@
 
   .sidebar {
     background:
-      radial-gradient(circle at 0% 100%, #D1AA3712, transparent 30%),
+      radial-gradient(circle at 0% 100%, #E8B81C12, transparent 30%),
       linear-gradient(135deg, #171512 0%, #0A0908 55%, #030303 100%);
     border-right: 1px solid var(--panel-border);
   }
 
   .sidebar-section {
     padding: 14px 14px 12px;
-    border-bottom: 1px solid #D1AA371f;
+    border-bottom: 1px solid #E8B81C1f;
   }
 
   .sidebar-label,
@@ -1576,7 +1595,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border-bottom: 1px solid #D1AA371f;
+    border-bottom: 1px solid #E8B81C1f;
     flex-shrink: 0;
   }
 
@@ -1649,7 +1668,7 @@
     padding: 7px 8px; border-radius: 6px; cursor: pointer; transition: background 0.12s;
     border-top: 1px solid var(--panel-border);
   }
-  .aq-item:hover, .aq-item.sel { background: #D1AA3712; }
+  .aq-item:hover, .aq-item.sel { background: #E8B81C12; }
   .aq-item-title { font-size: 12px; color: var(--text-primary); font-weight: 500; }
   .aq-item-arrow { color: var(--gold); font-size: 13px; }
   .aq-empty { font-size: 11px; color: var(--text-muted); padding: 6px 2px; font-style: italic; }
@@ -1721,7 +1740,7 @@
   }
 
   .scenario-card.active {
-    background: #D1AA3712;
+    background: #E8B81C12;
     border: 1px solid var(--gold);
     border-left: 3px solid var(--gold);
     box-shadow: none;
@@ -1743,7 +1762,7 @@
     border-radius: 2px;
     font-size: 7px;
     color: var(--gold);
-    background: #D1AA3717;
+    background: #E8B81C17;
   }
 
   .graph-grid {
@@ -1787,7 +1806,7 @@
   .param-group {
     margin-bottom: 14px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #D1AA371f;
+    border-bottom: 1px solid #E8B81C1f;
   }
 
   .table-input th {
@@ -1823,7 +1842,7 @@
     padding: 5px 14px;
     border-radius: 999px;
     font-size: 9px;
-    background: linear-gradient(90deg, var(--gold), #78611D);
+    background: linear-gradient(90deg, var(--gold), #846C12);
   }
 
   .main-area {
@@ -1877,8 +1896,8 @@
 
   #graph-canvas {
     background:
-      linear-gradient(90deg, #D1AA370e 1px, transparent 1px),
-      linear-gradient(#D1AA370e 1px, transparent 1px),
+      linear-gradient(90deg, #E8B81C0e 1px, transparent 1px),
+      linear-gradient(#E8B81C0e 1px, transparent 1px),
       #000;
     background-size: 44px 44px;
   }
@@ -1901,12 +1920,12 @@
   }
 
   .right-panel-top {
-    border-bottom: 1px solid #D1AA3726;
+    border-bottom: 1px solid #E8B81C26;
   }
 
   .rpanel-section {
     padding: 13px 13px 12px;
-    border-bottom: 1px solid #D1AA371a;
+    border-bottom: 1px solid #E8B81C1a;
   }
 
   .right-tabs {
@@ -2056,12 +2075,12 @@
     width: 6px;
     flex: 0 0 6px;
     cursor: col-resize;
-    background: linear-gradient(90deg, transparent, #D1AA3720, transparent);
+    background: linear-gradient(90deg, transparent, #E8B81C20, transparent);
     border-left: 1px solid #ffffff08;
     border-right: 1px solid #000;
     z-index: 20;
   }
-  .resize-handle:hover, body.resizing .resize-handle { background: linear-gradient(90deg, transparent, #D1AA3755, transparent); }
+  .resize-handle:hover, body.resizing .resize-handle { background: linear-gradient(90deg, transparent, #E8B81C55, transparent); }
 
   /* Old vertical whiteboard palette hidden — design uses single top-left pill toolbar (.canvas-float-toolbar) */
   .wb-palette {
@@ -2104,7 +2123,7 @@
     cursor: pointer;
     box-shadow: 0 0 0 1px #ffffff2a;
   }
-  .wb-divider { width: 18px; height: 1px; background: #D1AA3744; }
+  .wb-divider { width: 18px; height: 1px; background: #E8B81C44; }
 
   .dashboard-view, .study-deck {
     display: none;
@@ -2113,7 +2132,7 @@
     z-index: 75;
     overflow: auto;
     padding: 34px 48px;
-    background: radial-gradient(circle at 50% 0%, #D1AA3711, transparent 32%), #121009;
+    background: radial-gradient(circle at 50% 0%, #E8B81C11, transparent 32%), #121009;
   }
   .dashboard-view.active, .study-deck.active { display: block; }
   .dashboard-inner, .study-inner { max-width: 1080px; margin: 0 auto; }
@@ -2154,7 +2173,7 @@
   }
   .study-deck-btn:hover {
     border-color: var(--gold);
-    background: #D1AA3710;
+    background: #E8B81C10;
   }
   .reset-model-btn {
     display: none; /* moved to title row as ↺ Reset button */
@@ -2163,11 +2182,11 @@
   /* ===== MODEL NAV ACCORDION ===== */
   .model-nav {
     overflow-y: auto; flex-shrink: 0;
-    max-height: 48vh; border-bottom: 1px solid #D1AA371a;
+    max-height: 48vh; border-bottom: 1px solid #E8B81C1a;
   }
   .model-nav::-webkit-scrollbar { width: 3px; }
   .model-nav::-webkit-scrollbar-thumb { background: var(--input-border); border-radius: 2px; }
-  .model-section { border-bottom: 1px solid #D1AA371a; }
+  .model-section { border-bottom: 1px solid #E8B81C1a; }
   .model-section-hdr {
     display: flex; align-items: center; justify-content: space-between;
     padding: 9px 14px; cursor: pointer; user-select: none;
@@ -2175,7 +2194,7 @@
     text-transform: uppercase; color: var(--text-muted);
     transition: color 0.15s, background 0.15s;
   }
-  .model-section-hdr:hover { color: var(--gold); background: #D1AA3708; }
+  .model-section-hdr:hover { color: var(--gold); background: #E8B81C08; }
   .model-section-hdr.open { color: var(--gold); }
   .model-chevron { font-size: 10px; transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; }
   .model-section-hdr.open .model-chevron { transform: rotate(90deg); }
@@ -2183,7 +2202,7 @@
   .model-sub-label {
     font-family: 'Montserrat', monospace; font-size: 7px; letter-spacing: 1.5px;
     text-transform: uppercase; color: var(--gold); opacity: 0.75; padding: 9px 6px 3px;
-    border-top: 1px solid #D1AA3712;
+    border-top: 1px solid #E8B81C12;
     margin-top: 4px;
   }
   .model-sub-label:first-child { border-top: none; margin-top: 2px; }
@@ -2194,8 +2213,8 @@
     font-family: 'Montserrat', sans-serif; font-size: 11px;
     color: var(--text-secondary); transition: all 0.15s; text-align: left;
   }
-  .model-btn:hover { color: var(--text-primary); background: #D1AA3710; border-left-color: #D1AA3740; }
-  .model-btn.active { color: var(--gold); background: #D1AA3715; border-left-color: var(--gold); }
+  .model-btn:hover { color: var(--text-primary); background: #E8B81C10; border-left-color: #E8B81C40; }
+  .model-btn.active { color: var(--gold); background: #E8B81C15; border-left-color: var(--gold); }
   .model-btn-icon { font-size: 12px; width: 18px; flex-shrink: 0; text-align: center; }
 
   /* ===== RIGHT PANEL TOGGLE ===== */
@@ -2491,7 +2510,7 @@
     align-self: flex-start;
     display: inline-flex; align-items: center; gap: 5px;
     font-family: 'Montserrat', monospace; font-size: 8px; letter-spacing: 1.2px; text-transform: uppercase;
-    color: var(--gold); background: #D1AA3715; border: 1px solid var(--gold);
+    color: var(--gold); background: #E8B81C15; border: 1px solid var(--gold);
     border-radius: 999px; padding: 3px 9px;
   }
   .ps-autoplot::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); }
@@ -2553,7 +2572,7 @@
     border-radius:9px; padding:9px 11px; cursor:pointer; transition:all 0.14s; width:100%;
   }
   .ps-recipe:hover { border-color:var(--gold); }
-  .ps-recipe.active { background:#D1AA3712; border:1px solid var(--gold); border-left:3px solid var(--gold); }
+  .ps-recipe.active { background:#E8B81C12; border:1px solid var(--gold); border-left:3px solid var(--gold); }
   .ps-recipe-name { font-size:12.5px; font-weight:500; color:var(--text-primary); }
   .ps-recipe-diff { font-family:'Montserrat',monospace; font-size:7.5px; letter-spacing:0.7px; text-transform:uppercase; padding:2px 6px; border-radius:4px; border:1px solid currentColor; flex-shrink:0; }
 
@@ -3111,7 +3130,7 @@
 
     <!-- MODEL NAV (Plot mode only — hidden in Scenario mode to match the design) -->
     <div class="model-nav" id="model-nav" style="display:none">
-      <div style="padding:10px 14px 4px;font-family:'Montserrat',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid #D1AA3712;">Economic Models</div>
+      <div style="padding:10px 14px 4px;font-family:'Montserrat',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid #E8B81C12;">Economic Models</div>
 
       <!-- Supply & Demand -->
       <div class="model-section">
@@ -3250,7 +3269,7 @@
       <div class="tool-btn" id="tool-eraser" onclick="setTool('eraser')" title="Eraser">Erase</div>
       <div class="toolbar-sep"></div>
       <div class="color-picker-wrap">
-        <div class="color-dot active" style="background:#C9A84C" onclick="setWBColor('#C9A84C')" id="dot-gold"></div>
+        <div class="color-dot active" style="background:#E8B81C" onclick="setWBColor('#E8B81C')" id="dot-gold"></div>
         <div class="color-dot" style="background:#E53935" onclick="setWBColor('#E53935')" id="dot-red"></div>
         <div class="color-dot" style="background:#1A73E8" onclick="setWBColor('#1A73E8')" id="dot-blue"></div>
         <div class="color-dot" style="background:#43A047" onclick="setWBColor('#43A047')" id="dot-green"></div>
@@ -3294,7 +3313,7 @@
         <button class="wb-tool" id="wb-tool-text" onclick="setTool('text')" title="Text">T</button>
         <button class="wb-swatch" style="background:#EF6461" onclick="setWBColor('#EF6461')" title="Red"></button>
         <button class="wb-swatch" style="background:#55A7FF" onclick="setWBColor('#55A7FF')" title="Blue"></button>
-        <button class="wb-swatch" style="background:#D1AA37" onclick="setWBColor('#D1AA37')" title="Gold"></button>
+        <button class="wb-swatch" style="background:#E8B81C" onclick="setWBColor('#E8B81C')" title="Gold"></button>
       </div>
       <div class="empty-state" id="empty-state">
         <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:44px;height:44px"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M7 14l4-5 3 3 5-7"/></svg></div>
@@ -3351,7 +3370,7 @@
 let currentGraph = 'demand';
 let wbEnabled = false;   // whiteboard off by default so graphs stay draggable
 let wbTool = 'pen';
-let wbColor = '#C9A84C';
+let wbColor = '#E8B81C';
 let wbStroke = 3;
 let isDrawing = false;
 let lastX = 0, lastY = 0;
@@ -3738,91 +3757,69 @@ function buildRightRail() {
     <button class="rp-toggle-btn" onclick="toggleRightPanel()" title="Toggle panel">${rpOpen ? '›' : '‹'}</button>
     <div class="rp-content">
 
-      <!-- Sticky chip nav -->
+      <!-- Sticky tab nav -->
       <div class="rp-chip-nav">
-        <div class="rp-chip-nav-label">Jump to</div>
         <div class="rp-chips">
-          <button class="rp-chip active" onclick="rpScrollTo('rp-answer')">Answer</button>
-          <button class="rp-chip" onclick="rpScrollTo('rp-reasoning')">Reasoning</button>
-          <button class="rp-chip" onclick="rpScrollTo('rp-schedule')">Schedule</button>
-          <button class="rp-chip" onclick="rpScrollTo('rp-keywords')">Keywords</button>
+          <button class="rp-chip active" onclick="rpTab('rp-overview')">Answer</button>
+          <button class="rp-chip" onclick="rpTab('rp-schedule')">Schedule</button>
         </div>
       </div>
 
-      <!-- Scroll narrative -->
-      <div class="rp-scroll" id="rp-scroll">
+      <!-- Tabbed panes -->
+      <div class="rp-scroll rp-tabbed" id="rp-scroll">
 
-        <!-- Answer (hero) -->
-        <section class="rp-narrative-section" id="rp-answer">
-          <div class="rp-answer-heading">
-            <span class="rp-answer-heading-title">The answer</span>
-            <span class="rp-live-badge">Live</span>
-          </div>
-          <p class="rp-answer-body" id="exam-area">Plot a graph to generate an exam-style answer.</p>
-          <div class="rp-stat-grid" id="stats-area">
-            <div class="rp-stat-card"><div class="rp-stat-key">P*</div><div class="rp-stat-val">—</div></div>
-            <div class="rp-stat-card"><div class="rp-stat-key">Q*</div><div class="rp-stat-val">—</div></div>
-          </div>
-          <div class="rp-legend-items" id="legend-area"><div style="font-size:11px;color:var(--text-muted)">Plot a graph to see legend</div></div>
-        </section>
+        <!-- OVERVIEW pane: answer + reasoning + keywords together -->
+        <div class="rp-pane active" id="rp-overview">
+          <section class="rp-narrative-section" id="rp-answer">
+            <div class="rp-answer-heading">
+              <span class="rp-answer-heading-title">The answer</span>
+              <span class="rp-live-badge">Live</span>
+            </div>
+            <p class="rp-answer-body" id="exam-area">Plot a graph to generate an exam-style answer.</p>
+            <div class="rp-stat-grid" id="stats-area">
+              <div class="rp-stat-card"><div class="rp-stat-key">P*</div><div class="rp-stat-val">—</div></div>
+              <div class="rp-stat-card"><div class="rp-stat-key">Q*</div><div class="rp-stat-val">—</div></div>
+            </div>
+            <div class="rp-legend-items" id="legend-area"><div style="font-size:11px;color:var(--text-muted)">Plot a graph to see legend</div></div>
+          </section>
 
-        <!-- Reasoning (pull-quote) -->
-        <section class="rp-narrative-section rp-reasoning-section" id="rp-reasoning">
-          <div class="rp-reasoning-label">Reasoning</div>
-          <p class="rp-reasoning-text" id="reasoning-area">Key reasoning will appear here.</p>
-          <div id="analysis-area" style="margin-top:12px"></div>
-        </section>
+          <section class="rp-narrative-section rp-reasoning-section" id="rp-reasoning">
+            <div class="rp-reasoning-label">Reasoning</div>
+            <p class="rp-reasoning-text" id="reasoning-area">Key reasoning will appear here.</p>
+            <div id="analysis-area" style="margin-top:12px"></div>
+          </section>
 
-        <!-- Schedule -->
-        <section class="rp-narrative-section" id="rp-schedule">
+          <section class="rp-narrative-section" id="rp-keywords">
+            <div class="rp-mono-label">Keywords</div>
+            <div id="keywords-area" class="keyword-list"></div>
+          </section>
+        </div>
+
+        <!-- SCHEDULE pane (its own tab, editable) -->
+        <div class="rp-pane" id="rp-schedule">
           <div class="rp-mono-label">Schedule</div>
-          <div class="ps-explain" id="live-insight"></div>
           <div id="schedule-area"><div style="font-size:11px;color:var(--text-muted)">Choose a scenario or plot data</div></div>
           <div class="rp-schedule-hint">↑ Equilibrium row highlighted in gold</div>
-        </section>
-
-        <!-- Keywords -->
-        <section class="rp-narrative-section" id="rp-keywords">
-          <div class="rp-mono-label">Keywords</div>
-          <div id="keywords-area" class="keyword-list"></div>
-        </section>
+        </div>
 
       </div>
     </div>`;
 
-  // Wire up scroll-spy to update active chip
-  const scroll = document.getElementById('rp-scroll');
-  if (scroll) {
-    scroll.addEventListener('scroll', rpUpdateChips, { passive: true });
-  }
 }
 
-function rpScrollTo(sectionId) {
-  const scroll = document.getElementById('rp-scroll');
-  const target = document.getElementById(sectionId);
-  if (scroll && target) {
-    scroll.scrollTo({ top: target.offsetTop - 8, behavior: 'smooth' });
-  }
-  // Update active chip immediately
-  document.querySelectorAll('.rp-chip').forEach(c => c.classList.remove('active'));
-  const map = { 'rp-answer': 0, 'rp-reasoning': 1, 'rp-schedule': 2, 'rp-keywords': 3 };
-  const idx = map[sectionId] ?? 0;
+// Switch the right-rail between its two tabs: Answer (overview) and Schedule.
+function rpTab(paneId) {
+  if (paneId === 'rp-answer' || paneId === 'rp-reasoning' || paneId === 'rp-keywords') paneId = 'rp-overview';
+  const map = { 'rp-overview': 0, 'rp-schedule': 1 };
+  document.querySelectorAll('#rp-scroll .rp-pane').forEach(s => s.classList.toggle('active', s.id === paneId));
   const chips = document.querySelectorAll('.rp-chip');
-  if (chips[idx]) chips[idx].classList.add('active');
-}
-
-function rpUpdateChips() {
+  chips.forEach((c, i) => c.classList.toggle('active', i === (map[paneId] ?? 0)));
   const scroll = document.getElementById('rp-scroll');
-  if (!scroll) return;
-  const sections = ['rp-answer','rp-reasoning','rp-schedule','rp-keywords'];
-  const chips = document.querySelectorAll('.rp-chip');
-  let activeIdx = 0;
-  sections.forEach((id, i) => {
-    const el = document.getElementById(id);
-    if (el && el.offsetTop - scroll.scrollTop <= 40) activeIdx = i;
-  });
-  chips.forEach((c, i) => c.classList.toggle('active', i === activeIdx));
+  if (scroll) scroll.scrollTop = 0;
 }
+// Back-compat: anything that used to scroll now just switches tab.
+function rpScrollTo(sectionId) { rpTab(sectionId); }
+function rpUpdateChips() {}
 
 function setRightTab(tab) {
   activeRightTab = tab;
@@ -4438,7 +4435,7 @@ function updateScheduleFromInputs() {
       <thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
       <tbody>${rows.map(row => {
         const eq = isEqRow(row);
-        const rowStyle = eq ? 'background:#D1AA3715;' : '';
+        const rowStyle = eq ? 'background:#E8B81C15;' : '';
         const cellStyle = eq ? 'color:var(--gold);font-weight:600;' : '';
         return `<tr style="${rowStyle}">${row.map(v => `<td style="${cellStyle}">${v}</td>`).join('')}</tr>`;
       }).join('')}</tbody>
@@ -6574,7 +6571,7 @@ function downloadPNG() {
   ctx.drawImage(wbCanvas, 0, 0);
 
   // Watermark
-  ctx.fillStyle = '#C9A84C88';
+  ctx.fillStyle = '#E8B81C88';
   ctx.font = `11px 'Montserrat', monospace`;
   ctx.textAlign = 'right';
   ctx.fillText('CurveIQ · Cashology', merged.width - 10, merged.height - 10);
@@ -7152,7 +7149,7 @@ function updateLiveRail() {
     schedule.innerHTML = `<table class="schedule-table"><thead><tr>
       <th>${scn.axes.xName}</th>${curves.map(c => `<th>${c.abbr}</th>`).join('')}</tr></thead><tbody>
       ${rows.map(r => {
-        const style = r.eq ? 'background:#D1AA3715;' : '';
+        const style = r.eq ? 'background:#E8B81C15;' : '';
         const cell = r.eq ? 'color:var(--gold);font-weight:700;' : '';
         return `<tr style="${style}"><td style="${cell}">${lgNum(r.x)}</td>${curves.map(c => `<td style="${cell}">${lgNum(lgCurveY(c, r.x))}</td>`).join('')}</tr>`;
       }).join('')}</tbody></table>`;
@@ -7380,21 +7377,33 @@ function psCurveNote(role, base, line, opts){
   // Shift = parallel displacement, measured as the value gap at mid-x (the pivot
   // point), so a pure steepness change (a rotation) is NOT mistaken for a shift.
   const xMax = (lgState && lgState.scn && lgState.scn.domain && lgState.scn.domain.xMax) || 100;
+  const yMax = (lgState && lgState.scn && lgState.scn.domain && lgState.scn.domain.yMax) || 100;
   const qRef = xMax / 2;
   const dP = (line.intercept + line.slope * qRef) - (base.intercept + base.slope * qRef);
   const dMag = Math.abs(line.slope) - Math.abs(base.slope); // slope magnitude change
   const pEps = Math.max(0.6, xMax * 0.006), sEps = 0.03;
+  // terminal elasticity cases: a flat line is perfectly elastic, a vertical one perfectly inelastic
+  const priceSpan = Math.abs(line.slope) * xMax;               // how far P travels across the whole x-range
+  const horizontal = role !== 'flat' && priceSpan < 0.05 * yMax;
+  const vertical   = role !== 'flat' && Math.abs(line.slope) > (yMax / xMax) * 20;
+  const terminal   = market && (horizontal || vertical);       // dominant fact → skip the shift clause
   const parts = [];
-  if (Math.abs(dP) > pEps){
+  if (!terminal && Math.abs(dP) > pEps){
     if (market && role === 'up')        parts.push(dP < 0 ? 'Supply increased — sellers offer more at every price (shifts right).' : 'Supply decreased — sellers offer less at every price (shifts left).');
     else if (market && role === 'flat') parts.push(dP > 0 ? 'The price level moved up.' : 'The price level moved down.');
     else if (market)                    parts.push(dP > 0 ? 'Demand increased — buyers want more at every price (shifts right).' : 'Demand decreased — buyers want less at every price (shifts left).');
     else                                parts.push(dP > 0 ? `${label} shifted up — higher at every ${xN}.` : `${label} shifted down — lower at every ${xN}.`);
   }
-  if (role !== 'flat' && Math.abs(dMag) > sEps){
-    if (market) parts.push(dMag > 0 ? 'The curve is steeper now — quantity reacts less to price (more inelastic).'
-                                    : 'The curve is flatter now — quantity reacts more to price (more elastic).');
-    else        parts.push(dMag > 0 ? `${label} is steeper now — it rises faster.` : `${label} is flatter now — it rises more gently.`);
+  if (role !== 'flat'){
+    const subj = market ? (role === 'up' ? 'Supply' : 'Demand') : label;
+    const sym  = role === 'up' ? 'PES' : 'PED';
+    if (market && horizontal)     parts.push(`The curve is now horizontal — ${subj} is perfectly elastic (${sym} = ∞).`);
+    else if (market && vertical)  parts.push(`The curve is now vertical — ${subj} is perfectly inelastic (${sym} = 0).`);
+    else if (Math.abs(dMag) > sEps){
+      if (market) parts.push(dMag > 0 ? 'The curve is steeper now — quantity reacts less to price (more inelastic).'
+                                      : 'The curve is flatter now — quantity reacts more to price (more elastic).');
+      else        parts.push(dMag > 0 ? `${label} is steeper now — it changes faster across ${xN}.` : `${label} is flatter now — it changes more gradually across ${xN}.`);
+    }
   }
   if (!parts.length) return market ? 'This matches the starting curve.' : `${label} matches its starting shape.`;
   return parts.join(' ');
@@ -7402,7 +7411,11 @@ function psCurveNote(role, base, line, opts){
 // compute the note for a dataset and write it into its card (live, no rebuild)
 function psWriteNote(d, line){
   if (!d._touched) return;   // stay silent until the user actually changes this curve
-  const note = psCurveNote(d.role, d._base, line || lgDatasetLine(d));
+  // only a Price–Quantity graph gets demand/supply + elasticity wording; utility,
+  // cost, production etc. use neutral curve language (no "price", no "elastic").
+  const yN = ((lgState.scn.axes && lgState.scn.axes.yName) || '').toUpperCase();
+  const market = yN === 'P';
+  const note = psCurveNote(d.role, d._base, line || lgDatasetLine(d), { market, label: d.name || 'The curve' });
   d._note = note;
   const el = document.getElementById('ps-exp-' + d.id);
   if (el){
@@ -7957,14 +7970,7 @@ function updateScenarioRail() {
     const dn = lgDerivedNote();
     if (dn) insightTxt = dn;
   }
-  // (a) detailed note in the rail's Schedule section
-  const insight = document.getElementById('live-insight');
-  if (insight) {
-    insight.textContent = insightTxt;
-    insight.classList.remove('flash'); void insight.offsetWidth; if (insightTxt) insight.classList.add('flash');
-  }
-  // (b) mirror it into the always-visible footer strip right under the graph,
-  // so you see the explanation where you're actually dragging
+  // the "what changed" note appears ONCE, in the always-visible footer strip under the graph
   const ctext = document.getElementById('curious-text');
   const cz = document.getElementById('canvas-curious');
   if (ctext && cz) {
@@ -7976,16 +7982,64 @@ function updateScenarioRail() {
       cz.classList.remove('has-insight');
     }
   }
-  // (c) guaranteed-visible toast at the top of the screen — can't be scrolled past
-  if (insightTxt) showInsightToast(insightTxt);
 
-  // schedule table from the primary draggable dataset
+  // schedule table from the primary draggable dataset — fully editable + expandable
   const ds = lgState.datasets.find(d=>d.draggable) || lgState.datasets[0];
   const sch = document.getElementById('schedule-area');
   if (sch && ds) {
-    const rows = ds.points.slice().sort((a,b)=>a.q-b.q);
-    sch.innerHTML = `<table class="schedule-table"><thead><tr><th>${A.axes.xName}</th><th>${A.axes.yName}</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${lgNum(r.q)}</td><td>${lgNum(r.p)}</td></tr>`).join('')}</tbody></table>`;
+    const editable = ds.draggable !== false && ds.kind !== 'math';
+    // keep each row's ORIGINAL index so edits map back to the right point after sorting
+    const rows = ds.points.map((p,i)=>({ q:p.q, p:p.p, i })).sort((a,b)=>a.q-b.q);
+    if (editable) {
+      const canDel = ds.points.length > 2;
+      sch.innerHTML = `<table class="schedule-table sched-edit"><thead><tr><th>${A.axes.xName}</th><th>${A.axes.yName}</th><th></th></tr></thead><tbody>${rows.map(r=>`<tr>
+        <td><input type="number" step="any" value="${lgNum(r.q)}" onchange="scnEditSchedule('${ds.id}',${r.i},'q',this.value)"></td>
+        <td><input type="number" step="any" value="${lgNum(r.p)}" onchange="scnEditSchedule('${ds.id}',${r.i},'p',this.value)"></td>
+        <td class="sched-del-cell">${canDel ? `<button class="sched-del" title="Remove row" onclick="scnDelRow('${ds.id}',${r.i})">×</button>` : ''}</td>
+      </tr>`).join('')}</tbody></table>
+      <button class="sched-addrow" onclick="scnAddRow('${ds.id}')">+ Add row</button>
+      <div class="sched-edit-hint">Type any value, or add / remove rows — the graph redraws instantly.</div>`;
+    } else {
+      sch.innerHTML = `<table class="schedule-table"><thead><tr><th>${A.axes.xName}</th><th>${A.axes.yName}</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${lgNum(r.q)}</td><td>${lgNum(r.p)}</td></tr>`).join('')}</tbody></table>`;
+    }
   }
+}
+
+// Edit a scenario schedule cell → move that point and redraw the whole graph live.
+function scnEditSchedule(dsId, index, key, value){
+  if (!lgState || lgState.mode !== 'live') return;
+  const ds = lgState.datasets.find(d => d.id === dsId);
+  if (!ds || !ds.points[index]) return;
+  const v = parseFloat(value); if (isNaN(v)) return;
+  const dom = lgState.scn.domain;
+  const max = key === 'q' ? dom.xMax : dom.yMax;
+  const r = (dom.xMax > 400) ? 1 : 2;                 // coarser rounding for large (income) axes
+  ds.points[index][key] = Math.max(0, Math.min(max, Math.round(v * r) / r));
+  ds._touched = true; lgState._touched = true;
+  lgState._lastDragX = ds.points[index].q;
+  lgRebuildLiveCurves();   // rebuilds curves + derived + redraws graph + refreshes this rail
+}
+// Add a schedule row (a new point between the last two) and redraw.
+function scnAddRow(dsId){
+  if (!lgState || lgState.mode !== 'live') return;
+  const ds = lgState.datasets.find(d => d.id === dsId);
+  if (!ds) return;
+  const pts = ds.points.slice().sort((a,b)=>a.q-b.q);
+  const last = pts[pts.length-1], prev = pts[pts.length-2] || { q:0, p:last.p };
+  const nq = Math.min(lgState.scn.domain.xMax, last.q + Math.abs(last.q - prev.q || lgState.scn.domain.xMax*0.1));
+  const np = Math.max(0, Math.min(lgState.scn.domain.yMax, last.p + (last.p - prev.p)));
+  ds.points.push({ q: Math.round(nq*2)/2, p: Math.round(np*2)/2 });
+  ds._touched = true; lgState._touched = true;
+  lgRebuildLiveCurves();
+}
+// Remove a schedule row (keep at least 2 points) and redraw.
+function scnDelRow(dsId, index){
+  if (!lgState || lgState.mode !== 'live') return;
+  const ds = lgState.datasets.find(d => d.id === dsId);
+  if (!ds || ds.points.length <= 2 || !ds.points[index]) return;
+  ds.points.splice(index, 1);
+  ds._touched = true; lgState._touched = true;
+  lgRebuildLiveCurves();
 }
 
 // ===================== INIT =====================
