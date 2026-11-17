@@ -38,6 +38,20 @@
   "author": { "@type": "Organization", "name": "Cashology" }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is CurveIQ?", "acceptedAnswer": { "@type": "Answer", "text": "CurveIQ is a free, browser-based economics tool by Cashology. It turns static textbook diagrams into interactive graphs: you drag demand, supply, cost, utility and production curves and the graph, schedule and a written exam-style answer update live." } },
+    { "@type": "Question", "name": "Is CurveIQ free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. CurveIQ is completely free and runs in any web browser — no sign-up, no download and no app required." } },
+    { "@type": "Question", "name": "How do you draw a demand and supply graph?", "acceptedAnswer": { "@type": "Answer", "text": "Put price on the vertical axis and quantity on the horizontal axis. Demand slopes downward and supply slopes upward; where they cross is equilibrium. In CurveIQ you can type a function like P = 55 − 0.5Q, drag points, or edit the schedule table and the graph draws itself." } },
+    { "@type": "Question", "name": "What is perfectly elastic demand?", "acceptedAnswer": { "@type": "Answer", "text": "Perfectly elastic demand is a horizontal demand curve — buyers will purchase any quantity at one price but nothing above it, so the price elasticity of demand is infinite (PED = ∞)." } },
+    { "@type": "Question", "name": "What is the law of diminishing marginal utility?", "acceptedAnswer": { "@type": "Answer", "text": "It states that as a person consumes more units of a good, the additional (marginal) utility from each extra unit falls. Total utility keeps rising but at a decreasing rate, until marginal utility reaches zero at the point of maximum satisfaction." } },
+    { "@type": "Question", "name": "Who is CurveIQ for?", "acceptedAnswer": { "@type": "Answer", "text": "It is built for Class 11–12 and A-Level / high-school economics students and teachers studying microeconomics — demand and supply, elasticity, utility, cost, production and market structures." } }
+  ]
+}
+</script>
 <!-- GOOGLE_VERIFICATION_PLACEHOLDER -->
 <!-- Google tag (gtag.js) — Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNJ8JD31K2"></script>
@@ -802,7 +816,8 @@
     transition: opacity .4s ease, visibility .4s ease;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .landing::before, .landing::after {
@@ -856,7 +871,7 @@
 
   /* Landing body grid */
   .landing-inner {
-    flex: 1;
+    flex: 1 0 auto;
     display: grid;
     grid-template-columns: 1fr 1.25fr;
     align-items: center;
@@ -865,6 +880,28 @@
     position: relative;
     z-index: 1;
     min-height: 0;
+  }
+
+  /* SEO / learn content below the hero (visible on the welcome screen, indexable) */
+  .seo-content { position: relative; z-index: 1; flex-shrink: 0; border-top: 1px solid var(--panel-border); background: linear-gradient(180deg, transparent, var(--panel-bg) 40%); padding: 54px 56px 70px; }
+  .seo-inner { max-width: 1040px; margin: 0 auto; }
+  .seo-content h2 { font-family: 'Cinzel', serif; font-size: 27px; font-weight: 600; color: var(--text-primary); letter-spacing: .3px; margin-bottom: 14px; }
+  .seo-lead { font-size: 15px; line-height: 1.7; color: var(--text-secondary); max-width: 760px; margin-bottom: 36px; }
+  .seo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 32px; margin-bottom: 52px; }
+  .seo-grid article { border-left: 2px solid var(--gold); padding: 2px 0 2px 16px; }
+  .seo-grid h3 { font-family: 'Cinzel', serif; font-size: 17px; color: var(--gold); margin-bottom: 7px; }
+  .seo-grid p { font-size: 13.5px; line-height: 1.65; color: var(--text-secondary); }
+  .seo-faq { display: flex; flex-direction: column; gap: 10px; }
+  .seo-faq details { border: 1px solid var(--panel-border); border-radius: 10px; background: var(--input-bg); overflow: hidden; }
+  .seo-faq summary { cursor: pointer; list-style: none; padding: 14px 16px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-primary); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .seo-faq summary::-webkit-details-marker { display: none; }
+  .seo-faq summary::after { content: '+'; color: var(--gold); font-size: 18px; flex-shrink: 0; transition: transform .2s; }
+  .seo-faq details[open] summary::after { transform: rotate(45deg); }
+  .seo-faq details p { padding: 0 16px 15px; font-size: 13.5px; line-height: 1.65; color: var(--text-secondary); }
+  .seo-foot { margin-top: 44px; font-size: 12px; color: var(--text-muted); text-align: center; }
+  @media (max-width: 760px) {
+    .seo-content { padding: 40px 20px 60px; }
+    .seo-grid { grid-template-columns: 1fr; gap: 18px; }
   }
 
   .landing-kicker {
@@ -3073,6 +3110,37 @@
       </div>
     </aside>
   </div>
+
+  <!-- Learn / indexable content (visible on the welcome screen) -->
+  <section class="seo-content" aria-label="About CurveIQ and key economics concepts">
+    <div class="seo-inner">
+      <h2>Interactive economics graphs for every microeconomics topic</h2>
+      <p class="seo-lead">CurveIQ by Cashology is a free, interactive economics tool for Class 11–12 and A-Level students. Instead of memorising diagrams, you drag the curves yourself — demand, supply, cost, utility and production — and watch the graph, the schedule table and an exam-style answer update live. Every curve below is a playable model: tap it to open, then pull a point to see what changes.</p>
+
+      <div class="seo-grid">
+        <article><h3>Law of Demand</h3><p>Demand slopes downward: as price falls, quantity demanded rises. Drag the curve to see why a change in price is a movement <em>along</em> the curve, while a change in income or tastes shifts the whole curve.</p></article>
+        <article><h3>Law of Supply</h3><p>Supply slopes upward: higher prices draw more quantity onto the market. Steepen or flatten it to explore elastic and inelastic supply, and shift it to model a change in costs or technology.</p></article>
+        <article><h3>Market Equilibrium</h3><p>Equilibrium is where demand meets supply — quantity demanded equals quantity supplied, so there is no shortage or surplus. Pull a curve and watch the equilibrium price (P*) and quantity (Q*) move in real time.</p></article>
+        <article><h3>Price Elasticity of Demand</h3><p>Elasticity measures how much quantity reacts to price. A flat curve is more elastic; a steep one more inelastic. Flatten demand all the way to horizontal and CurveIQ labels it <strong>perfectly elastic (PED = ∞)</strong>.</p></article>
+        <article><h3>Diminishing Marginal Utility</h3><p>Each extra unit consumed adds less satisfaction than the one before — marginal utility falls as quantity rises. Drag the total-utility points and watch the marginal-utility curve bend and eventually turn negative.</p></article>
+        <article><h3>Short-Run Cost Curves</h3><p>Average cost, average variable cost and marginal cost are U-shaped, and the marginal-cost curve cuts both averages at their minimum points. Edit the cost schedule and see the AC, AVC and MC curves redraw instantly.</p></article>
+        <article><h3>Law of Variable Proportions</h3><p>As more of a variable factor is added to a fixed one, total product passes through three stages — increasing, diminishing and negative returns. Drag the total-product points and CurveIQ recomputes marginal and average product.</p></article>
+        <article><h3>Production Possibility Curve</h3><p>The PPC shows the maximum combinations of two goods an economy can produce. Its concave shape reflects increasing opportunity cost — producing more of one good means sacrificing ever more of the other.</p></article>
+      </div>
+
+      <h2>Frequently asked questions</h2>
+      <div class="seo-faq">
+        <details><summary>What is CurveIQ?</summary><p>CurveIQ is a free, browser-based economics tool by Cashology. It turns static textbook diagrams into interactive graphs: you drag demand, supply, cost, utility and production curves and the graph, schedule and a written exam-style answer update live.</p></details>
+        <details><summary>Is CurveIQ free to use?</summary><p>Yes. CurveIQ is completely free and runs in any web browser — no sign-up, no download and no app required.</p></details>
+        <details><summary>How do you draw a demand and supply graph?</summary><p>Put price on the vertical axis and quantity on the horizontal axis. Demand slopes downward and supply slopes upward; where they cross is equilibrium. In CurveIQ you can type a function like P = 55 − 0.5Q, drag points, or edit the schedule table and the graph draws itself.</p></details>
+        <details><summary>What is perfectly elastic demand?</summary><p>Perfectly elastic demand is a horizontal demand curve — buyers will purchase any quantity at one price but nothing above it, so the price elasticity of demand is infinite (PED = ∞). Flatten the demand curve in CurveIQ and it labels this case for you.</p></details>
+        <details><summary>What is the law of diminishing marginal utility?</summary><p>It states that as a person consumes more units of a good, the additional (marginal) utility from each extra unit falls. Total utility keeps rising but at a decreasing rate, until marginal utility reaches zero at the point of maximum satisfaction.</p></details>
+        <details><summary>Who is CurveIQ for?</summary><p>It's built for Class 11–12 and A-Level / high-school economics students and teachers studying microeconomics — demand and supply, elasticity, utility, cost, production and market structures — but anyone wanting to understand economic graphs can use it.</p></details>
+      </div>
+
+      <div class="seo-foot">CurveIQ by Cashology — interactive economics graphs for demand, supply, elasticity, utility, cost and production.</div>
+    </div>
+  </section>
 </div>
 
 <header>
